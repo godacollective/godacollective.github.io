@@ -13,10 +13,21 @@ body {
 .text {
   text-align: center;
   color: black;
-  width: 50%;
   overflow: auto;
   font-family: 'Playfair Display', serif;
   font-size: 150%;
+}
+
+@media only screen and (max-width: 600px) {
+  .adaptwidth {
+    width: 90%;
+  }
+}
+
+@media only screen and (min-width: 600px) {
+  .adaptwidth {
+    width: 50%;
+  }
 }
 
 .smalllogofont {
@@ -37,13 +48,11 @@ a {
 .whitetext {
   text-align: center;
   color: white;
-  width: 50%;
   overflow: auto;
   font-family: 'Playfair Display', serif;
   font-size: 150%;
 }
 
 .whitetext a {
-    text-decoration: underline;
     color: white;
 }
