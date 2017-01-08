@@ -11,12 +11,9 @@ body {
 }
 
 .text {
-  /*background: black;*/
   text-align: center;
   color: black;
   width: 50%;
-  /*padding: 20px;*/
-  /*resize: both;*/
   overflow: auto;
   font-family: 'Playfair Display', serif;
   font-size: 150%;
@@ -36,23 +33,17 @@ a {
     text-decoration: underline;
     color: black;
 }
-/*
-a:link {
-    text-decoration: underline;
-    color: black;
+
+.whitetext {
+  text-align: center;
+  color: white;
+  width: 50%;
+  overflow: auto;
+  font-family: 'Playfair Display', serif;
+  font-size: 150%;
 }
 
-a:visited {
+.whitetext a {
     text-decoration: underline;
-    color: black;
+    color: white;
 }
-
-a:hover {
-    text-decoration: underline;
-    color: black;
-}
-
-a:active {
-    text-decoration: underline;
-    color: black;
-}*/
