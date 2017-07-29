@@ -9,23 +9,50 @@ body {
     align-items: center;
 }
 
-.text {
-  text-align: center;
-  color: black;
-  overflow: auto;
-  font-family: 'Playfair Display', serif;
-  font-size: 150%;
-}
+
 
 @media only screen and (max-width: 600px) {
+  .text {
+    text-align: center;
+    color: black;
+    overflow: auto;
+    font-family: 'Playfair Display', serif;
+    font-size: 145%;
+  }
+
   .adaptwidth {
     width: 90%;
   }
 
+  .smalllogofont {
+      font-family: 'Oswald', sans-serif;
+      font-size: 145%;
+  }
 
+  .logofont {
+      font-family: 'Oswald', sans-serif;
+      font-size: 217%;
+  }
+
+  .whitetext {
+    text-align: center;
+    color: white;
+    overflow: auto;
+    font-family: 'Playfair Display', serif;
+    font-size: 110%;
+  }
 }
 
 @media only screen and (min-width: 600px) {
+  .text {
+    text-align: center;
+    color: black;
+    overflow: auto;
+    font-family: 'Playfair Display', serif;
+    font-size: 150%;
+  }
+
+
   .adaptwidth {
     width: 50%;
   }
@@ -33,30 +60,37 @@ body {
   html,body {
     height:100%;  
   }
+
+  .smalllogofont {
+      font-family: 'Oswald', sans-serif;
+      font-size: 200%;
+  }
+
+  .logofont {
+      font-family: 'Oswald', sans-serif;
+      font-size: 300%;
+  }
+
+
+  .whitetext {
+    text-align: center;
+    color: white;
+    overflow: auto;
+    font-family: 'Playfair Display', serif;
+    font-size: 150%;
+  }
 }
 
-.smalllogofont {
-    font-family: 'Oswald', sans-serif;
-    font-size: 200%;
-}
 
-.logofont {
-    font-family: 'Oswald', sans-serif;
-    font-size: 300%;
-}
+
+
 
 a {
     text-decoration: underline;
     color: black;
 }
 
-.whitetext {
-  text-align: center;
-  color: white;
-  overflow: auto;
-  font-family: 'Playfair Display', serif;
-  font-size: 150%;
-}
+
 
 .whitetext a {
     color: white;
