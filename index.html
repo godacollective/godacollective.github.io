@@ -15,7 +15,37 @@
     </head>
     <body>
 
+        <script type="text/javascript">
+            new ShaderPen(`
+                const float PI = ${Math.PI};
+                mat2 rotate2d(float angle)
+                {
+                    return mat2(cos(angle),-sin(angle),
+                                sin(angle),cos(angle));
+                }
 
+                float plot (vec2 uv, float pct, float thickness)
+                {
+                    return smoothstep (pct-0.5*thickness, pct, uv.x) -
+                           smoothstep (pct, pct+0.5*thickness, uv.x);
+                }
+
+                void main()
+                {
+                    vec2 uv = gl_FragCoord.xy / iResolution.xy;
+                    uv = 2.*uv-1.;
+                    float line;
+                    for (float i = -4.;i<=4.;i++)
+                    {
+                        float x = i*0.05;
+                        vec2 uvn = rotate2d(cos(iTime*0.01)*16.0*x*PI+0.5*PI)*uv;
+                        line += plot(uvn, x, 0.015);
+                    }
+                    gl_FragColor = vec4(0.0, 0.0, 0.0, line-0.7);
+                }
+            `);
+            
+        </script>
         <!--[if lte IE 9]>
             <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://www.mozilla.org/en-US/firefox/new/">upgrade your browser</a> to improve your experience and security.</p>
         <![endif]-->
