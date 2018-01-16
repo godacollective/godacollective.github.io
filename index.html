@@ -38,7 +38,7 @@
                     for (float i = -4.;i<=4.;i++)
                     {
                         float x = i*0.05;
-                        vec2 uvn = rotate2d(cos(iTime*0.01)*16.0*x*PI+0.5*PI)*uv;
+                        vec2 uvn = rotate2d(cos(iTime*0.25)*16.0*x*PI+0.5*PI)*uv;
                         line += plot(uvn, x, 0.015);
                     }
                     gl_FragColor = vec4(0.0, 0.0, 0.0, line-0.7);
