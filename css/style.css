@@ -68,6 +68,11 @@ canvas {
       font-size: 200%;
   }
 
+  .yearfont {
+      font-family: 'Oswald', sans-serif;
+      font-size: 150%;
+  }
+
   .logofont {
       font-family: 'Oswald', sans-serif;
       font-size: 300%;
