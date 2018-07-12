@@ -97,6 +97,13 @@ a {
     color: black;
 }
 
+.basewhite {
+  color: white;
+}
+
+.basewhite a {
+  color: white;
+}
 
 
 .whitetext a {

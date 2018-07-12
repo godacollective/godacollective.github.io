@@ -18,30 +18,28 @@
         <script type="text/javascript">
             new ShaderPen(`
                 const float PI = ${Math.PI};
-                mat2 rotate2d(float angle)
-                {
-                    return mat2(cos(angle),-sin(angle),
-                                sin(angle),cos(angle));
-                }
 
-                float plot (vec2 uv, float pct, float thickness)
+void main() {
+                vec2 uv = -1.0 + 2.0 * gl_FragCoord.xy / iResolution.xy;
+                uv.x *=  iResolution.x / iResolution.y;
+                vec3 color = vec3(0.0);
+                for( int i=0; i<15; i++ )
                 {
-                    return smoothstep (pct-0.5*thickness, pct, uv.x) -
-                           smoothstep (pct, pct+0.5*thickness, uv.x);
+                  float pha =      sin(float(i)*546.13+1.0)*0.5 + 0.5;
+                  float siz = sin(float(i)*651.74+5.0)*0.5 + 0.5;
+                  siz = siz * siz * siz * siz;
+                  float pox =      sin(float(i)*321.55+4.1) * iResolution.x / iResolution.y;
+                  float rad = 0.1+0.5*siz+sin(pha+siz)/4.0;
+                  
+                  vec2  pos = vec2( pox+sin(iTime/15.+pha+siz), -1.0-rad + (2.0+2.0*rad)*mod(pha+0.3*(iTime/7.)*(0.2+0.8*siz),1.0));
+                  float dis = length( uv - pos );
+                  vec3  col = mix( vec3(0.194*sin(iTime/6.0)+0.3,0.2,0.3*pha), vec3(1.1*sin(iTime/9.0)+0.3,0.2*pha,0.4), 0.5+0.5*sin(float(i)));
+                  float f = length(uv-pos)/rad;
+                  f = sqrt(clamp(1.0+(sin((iTime)*siz)*0.5)*f,0.0,1.0));
+                  color += col.zyx *(1.0-smoothstep( rad*0.15, rad, dis ));
                 }
-
-                void main()
-                {
-                    vec2 uv = gl_FragCoord.xy / iResolution.xy;
-                    uv = 2.*uv-1.;
-                    float line;
-                    for (float i = -4.;i<=4.;i++)
-                    {
-                        float x = i*0.05;
-                        vec2 uvn = rotate2d(cos(iTime*0.25)*16.0*x*PI+0.5*PI)*uv;
-                        line += plot(uvn, x, 0.015);
-                    }
-                    gl_FragColor = vec4(0.0, 0.0, 0.0, line-0.7);
+                color *= sqrt(1.5-0.5*length(uv));
+                gl_FragColor = vec4(color,1.0);
                 }
             `);
             
@@ -50,13 +48,13 @@
             <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://www.mozilla.org/en-US/firefox/new/">upgrade your browser</a> to improve your experience and security.</p>
         <![endif]-->
 
-        <div class="text adaptwidth">
+        <div class="text adaptwidth basewhite">
             <div class="logofont">GODA</div>
             <div class="smalllogofont"> new media artist collective</div><br>
             <div class="yearfont">2017:</div>
             <a href="installations/music_of_chances.html" target="_self">Music of Chances</a><br><a href="installations/anonymous_message.html" target="_self">anonymous message</a><br><a href="installations/re-play.html" target="_self">Re:play</a><br><a href="installations/instarigami.html" target="_self">Instarigami</a><br><br>
             <div class="yearfont">2016:</div>
-            <a href="installations/kdlt.html" target="_self">kldt</a><br><a href="installations/goya.html" target="_self">GOYA by GODA</a><br><br>
+            <a href="installations/goya.html" target="_self">GOYA by GODA</a><br><a href="installations/kdlt.html" target="_self">kldt</a><br><br>
             <div class="yearfont">Artist statements:</div>
             <a href="go_statement.html" target="_self">GO</a> <a href="da_statement.html" target="_self">DA</a><br><br>
             <div class="smalllogofont" style="font-size: 100%"><a href="https://www.facebook.com/godacollective/" target="_blank">facebook</a>
