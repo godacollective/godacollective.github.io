@@ -18,7 +18,8 @@ canvas {
     text-align: center;
     color: black;
     overflow: auto;
-    font-family: 'Playfair Display', serif;
+      font-family: 'Oswald', sans-serif;
+    /*font-family: 'Playfair Display', serif;*/
     font-size: 145%;
   }
 
@@ -40,7 +41,8 @@ canvas {
     text-align: center;
     color: white;
     overflow: auto;
-    font-family: 'Playfair Display', serif;
+      font-family: 'Oswald', sans-serif;
+    /*font-family: 'Playfair Display', serif;*/
     font-size: 110%;
   }
 }
@@ -50,7 +52,8 @@ canvas {
     text-align: center;
     color: black;
     overflow: auto;
-    font-family: 'Playfair Display', serif;
+      font-family: 'Oswald', sans-serif;
+    /*font-family: 'Playfair Display', serif;*/
     font-size: 150%;
   }
 
